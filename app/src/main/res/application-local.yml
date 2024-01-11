@@ -1,0 +1,6 @@
+mqtt:
+  client:
+    host: mqtt.brulenet.org
+    port: 1883
+    username: pi
+    password: J8n@ut0!7

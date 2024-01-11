@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ipv.Irigasi">
+
+    <!-- Izin yang diperlukan -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <application
+        android:name="com.ipv.Irigasi.SmartFarmingApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_logo"
+        android:supportsRtl="true"
+        android:screenOrientation="portrait"
+        android:theme="@style/Theme.AppCompat"
+        tools:targetApi="31" >
+
+        <!-- Konfigurasi ikon notifikasi default untuk Firebase Messaging -->
+        <meta-data android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notif" />
+
+        <!-- Aktivitas Splash Screen -->
+        <activity
+            android:name="com.ipv.Irigasi.SplashScreenActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Aktivitas Login -->
+        <activity
+            android:name="com.ipv.Irigasi.LoginActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@style/Theme.Transparent" >
+        </activity>
+
+        <!-- Aktivitas Utama -->
+        <activity
+            android:name="com.ipv.Irigasi.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" >
+        </activity>
+
+        <!-- Layanan untuk Firebase Messaging -->
+        <service
+            android:name="com.ipv.Irigasi.firebase.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- Konfigurasi Paho Android Service untuk MQTT -->
+        <service
+            android:name="org.eclipse.paho.android.service.MqttService"
+            android:exported="false" />
+
+        <service
+            android:name="org.eclipse.paho.android.service.MqttService"
+            android:exported="false" />
+
+
+    </application>
+</manifest>

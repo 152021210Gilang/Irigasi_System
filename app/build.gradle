@@ -1,0 +1,132 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'io.realm.kotlin'
+    id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace 'com.ipv.Irigasi'
+    compileSdk 34
+
+
+    defaultConfig {
+        applicationId "com.ipv.Irigasi"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.2'
+
+    // Kotlin
+    implementation('androidx.navigation:navigation-fragment-ktx:2.7.6')
+    implementation('androidx.navigation:navigation-ui-ktx:2.7.6')
+
+    // Feature module Support
+    implementation('androidx.navigation:navigation-dynamic-features-fragment:2.7.6')
+
+    // MongoDB
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'io.realm.kotlin:library-sync:1.13.0'
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    // Dagger 2
+    implementation 'com.google.dagger:dagger:2.50'
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx:20.4.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.4.0'
+
+    implementation 'com.google.firebase:firebase-auth:22.3.0'
+
+    kapt 'com.google.dagger:dagger-compiler:2.50'
+    implementation 'com.google.dagger:dagger-android:2.50'
+    implementation 'com.google.dagger:dagger-android-support:2.50'
+    // if you use the support libraries
+    kapt 'com.google.dagger:dagger-android-processor:2.50'
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+
+    // Moshi
+    implementation 'com.squareup.moshi:moshi:1.15.0'
+    implementation 'com.squareup.moshi:moshi-kotlin:1.15.0'
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+
+    // Retrofit Coroutines Support
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+
+    // Glide to Load Image and use Cache
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // GSON
+    implementation 'com.google.code.gson:gson:2.10.1'
+
+    // Firebase Messaging
+    implementation 'com.google.firebase:firebase-messaging:23.4.0'
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:32.7.0')
+
+    // Add the dependencies for the In-App Messaging and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    // Paho Android Service untuk MQTT
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+
+}

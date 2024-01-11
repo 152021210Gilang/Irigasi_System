@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "703789800670",
+    "project_id": "smartirigasi1",
+    "storage_bucket": "smartirigasi1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:703789800670:android:032255d5a68ebcf10f364f",
+        "android_client_info": {
+          "package_name": "com.ipv.Irigasi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwrNcO2yZDTTmUihu_owYDe4u0J6wt4TY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

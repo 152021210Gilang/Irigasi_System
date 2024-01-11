@@ -1,0 +1,27 @@
+scheduling:
+  schedules:
+    - name: schedule_a
+      events:
+        - name: "ON"
+          timestamp: "12:26:00"
+          command: turnOnCommand
+          devices:
+            - relayA
+            - relayB
+        - name: "OFF"
+          timestamp: "12:27:00"
+          command: turnOffCommand
+          devices:
+            - relayA
+            - relayB
+    - name: schedule_b
+      events:
+        - name: MEASURE
+          fixedRate: 300000
+          scheduledDays:
+            - MONDAY
+            - WEDNESDAY
+            - FRIDAY
+          command: measureCommand
+          devices:
+            - sensor
